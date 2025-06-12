@@ -1,84 +1,175 @@
+/* Reset básico */
+* {
+  box-sizing: border-box;
+}
+
+/* Body */
 body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #1e1e1e;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
-    }
-
-    header {
-      background-color: #007acc;
-      padding: 10px;
-      text-align: center;
-      font-size: 1.5em;
-    }
-
-    #editor {
-      flex: 1;
-      display: flex;
-      flex-direction: row;
-      padding: 10px;
-      overflow: hidden;
-    }
-
-    .line-numbers {
-  background-color: #2d2d2d;
-  color: #858585;
-  text-align: right;
-  padding: 10px 5px;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #121417;
+  color: #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
   user-select: none;
-  font-family: monospace;
+}
+
+/* Header */
+header {
+  background: linear-gradient(90deg, #007acc, #005a9e);
+  padding: 15px 20px;
+  text-align: center;
+  font-size: 1.75em;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: #fff;
+  box-shadow: 0 3px 8px rgba(0, 122, 204, 0.6);
+  user-select: text;
+}
+
+/* Editor container */
+#editor {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  padding: 15px 20px;
+  background-color: #1f232a;
+  border-radius: 8px;
+  margin: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.7);
+  overflow: hidden;
+}
+
+/* Linha de números */
+.line-numbers {
+  background-color: #2a2f3a;
+  color: #6c7086;
+  text-align: right;
+  padding: 15px 10px;
+  font-family: 'Fira Mono', monospace, monospace;
   font-size: 16px;
+  line-height: 1.6;
+  min-width: 50px;
+  border-radius: 6px 0 0 6px;
+  border-right: 1px solid #3b4050;
+  user-select: none;
+  white-space: pre;
+  box-shadow: inset -2px 0 4px rgba(255,255,255,0.05);
+}
+
+/* Textarea */
+textarea {
+  flex: 1;
+  background-color: #232830;
+  color: #d7dae0;
+  font-family: 'Fira Mono', monospace, monospace;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  resize: none;
+  padding: 15px 20px;
+  line-height: 1.6;
+  border-radius: 0 6px 6px 0;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
+  transition: background-color 0.3s ease;
+}
+
+textarea::placeholder {
+  color: #7f8494;
+  font-style: italic;
+}
+
+/* Foco no textarea */
+textarea:focus {
+  background-color: #2a303c;
+  box-shadow: 0 0 8px #007acc;
+  color: #e1e1e1;
+}
+
+/* Output */
+#output {
+  height: 180px;
+  background-color: #2a2f3a;
+  color: #d4d4d4;
+  padding: 20px;
+  font-family: 'Fira Mono', monospace;
+  overflow-y: auto;
+  border-radius: 0 0 8px 8px;
+  margin: 0 20px 20px 20px;
+  box-shadow: inset 0 0 12px rgba(0,0,0,0.8);
+  white-space: pre-wrap;
+  user-select: text;
+  font-size: 15px;
   line-height: 1.5;
-  min-width: 40px;
-  border-right: 1px solid #444;
-  white-space: pre; /* <- ESSENCIAL para manter as quebras de linha */
+}
+
+/* Header */
+header {
+  background: linear-gradient(90deg, #4a4a4a, #3a3a3a);
+  padding: 15px 20px;
+  text-align: center;
+  font-size: 1.75em;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: #d0d7de;
+  box-shadow: 0 3px 8px rgba(74, 74, 74, 0.7);
+  user-select: text;
+}
+
+/* Footer */
+footer {
+  background-color: #262525;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  box-shadow: 0 -3px 8px rgba(45, 45, 45, 0.8);
+  border-radius: 0 0 8px 8px;
+}
+
+/* Botões */
+button {
+  padding: 12px 22px;
+  border: none;
+  background-color: #666666;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 6px;
+  box-shadow: 0 3px 8px rgba(102, 102, 102, 0.7);
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
+  user-select: none;
+}
+
+button:hover {
+  background-color: #7f7f7f;
+  box-shadow: 0 5px 14px rgba(127, 127, 127, 0.9);
 }
 
 
-    textarea {
-      flex: 1;
-      background-color: #1e1e1e;
-      color: #dcdcdc;
-      font-family: monospace;
-      font-size: 16px;
-      border: none;
-      outline: none;
-      resize: none;
-      padding: 10px;
-      line-height: 1.5;
-    }
+button:active {
+  transform: scale(0.97);
+}
 
-    #output {
-      height: 150px;
-      background-color: #252526;
-      color: #d4d4d4;
-      padding: 10px;
-      font-family: monospace;
-      overflow-y: auto;
-      border-top: 1px solid #333;
-      white-space: pre-wrap;
+/* Scrollbar customizada para textarea e output */
+textarea::-webkit-scrollbar,
+#output::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
 
-    }
+textarea::-webkit-scrollbar-thumb,
+#output::-webkit-scrollbar-thumb {
+  background-color: #555a6e;
+  border-radius: 4px;
+}
 
-    footer {
-      background-color: #007acc;
-      padding: 10px;
-      display: flex;
-      justify-content: space-between;
-    }
+textarea::-webkit-scrollbar-track,
+#output::-webkit-scrollbar-track {
+  background-color: #1e2128;
+}
 
-    button {
-      padding: 10px 15px;
-      border: none;
-      background-color: #0e639c;
-      color: white;
-      cursor: pointer;
-      font-size: 14px;
-    }
-
-    button:hover {
-      background-color: #1177bb;
-    }
+/* Fonte extra para monoespaçado */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap');
